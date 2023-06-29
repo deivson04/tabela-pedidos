@@ -1,4 +1,20 @@
+<?php
+require 'repositorio_pedidos.php';
 
+$pedidos = $repositorio->getListaPedido();
+
+$destino = "cadastrar_pedido.php";
+
+if(isset($_GET['codigo'])){
+  $codigo = $_GET['codigo']; //Guardamos o codigo enviado na variável $codigo
+  //Obtemos o objeto prato relativo ao código
+  $pedido = $repositorio->buscarPedido($codigo);
+ //Agora a variável destino vai apontar para alterar_pedido.php
+ $destino = "alterar_pedido.php";
+ //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
+ $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
+}
+?>
 
 
 
@@ -28,7 +44,7 @@
   </li>
 </ul>
 
-<form action="" method="post"> 
+<form action="<?=$destino; ?>" method="post"> 
 <?= @$oculto; ?>
 <div class="form-label">
     <label for="cliente" class="form-label">Nome do Cliente:</label>

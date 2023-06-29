@@ -75,7 +75,7 @@
 			$linha = $this->conexao->obtemPrimeiroRegistroQuery("SELECT * FROM pedido WHERE codigo='$codigo'");
 			 
 			 //Cria um novo objeto pedido baseado na busca acima
-			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDoSalao'], $linha['dataDoPedido'],  $linha['bairroDoSalao'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento']);
+			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDoSalao'], $linha['dataDoPedido'],  $linha['bairroDoSalao'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'])	;
 			 
 			 return $pedido;
 		}

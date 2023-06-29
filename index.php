@@ -46,7 +46,7 @@ if(isset($_GET['codigo'])){
 <table class="table table-hover">
  
 <thead>
-      
+        <th>#</th>
         <th>Nome do Cliente</th>
         <th>Nome do Salão</th>
         <th>Data do Pedido</th>
@@ -63,6 +63,7 @@ if(isset($_GET['codigo'])){
      while($pedidoTemporario = array_shift($pedidos)){                               						
 		?>
     <tr>
+    <td><?php echo $pedidoTemporario->getCodigo() ?></td>
     <td><?php echo $pedidoTemporario->getNomeDoCliente() ?></td>
         <td><?php echo $pedidoTemporario->getNomeDoSalao() ?></td>
         <td><?php echo $pedidoTemporario->getDataDoPedido() ?></td>
