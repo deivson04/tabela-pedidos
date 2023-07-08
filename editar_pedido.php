@@ -8,7 +8,7 @@ $destino = "cadastrar_pedido.php";
 
 if(isset($_GET['codigo'])){
   $codigo = $_GET['codigo']; //Guardamos o codigo enviado na variável $codigo
-  //Obtemos o objeto prato relativo ao código
+  //Obtemos o objeto pedido relativo ao código
   $pedido = $repositorio->buscarPedido($codigo);
  //Agora a variável destino vai apontar para alterar_pedido.php
  $destino = "alterar_pedido.php";
@@ -49,9 +49,9 @@ if(isset($_GET['codigo'])){
     <input type="text" value="<?php echo isset($pedido)?$pedido->getNomeDoSalao():""; ?>" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
   </div>
   
-  <div class="form-label">
-    <label for="date" class="form-label">Data do Pedido:</label>
-    <input type="date" value="<?php echo $pedidos->STR_TO_DATE(getDataDoPedido()) ?>" name="dataDoPedido" class="form-control" id="dataDoPedido" style="min-width:300px;"  placeholder="Enter Date" required>
+  <div class="form-label">  
+  <label for="date" class="form-label">Data do Pedido:</label>
+    <input type="date" value="<?php echo isset($pedidos)?$pedido->getDataDoPedido():""; ?>" name="dataDoPedido" class="form-control" id="dataDoPedido" style="min-width:300px;"  placeholder="Enter Date" required>
   </div>
    
   <div class="form-label">
@@ -64,9 +64,9 @@ if(isset($_GET['codigo'])){
   <textarea name="descricaoDoPedido" class="form-control" rows="5" required><?php echo isset($pedido)?$pedido->getDescricaoDoPedido():"";?></textarea>
   </div>
   <br> 
-  <div class="form-label">
-  <select value="<?php echo isset($pedido)?$pedido->getMetodoDePagamento():""; ?>" class="form-select"  id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
-  <option selected>Escolha a Forma de Pagamento</option>
+<div class="form-label">
+<select class="form-select" id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
+  <option value="<?php echo isset($pedido)?$pedido->getMetodoDePagamento():""; ?>"></option>
   <option value="Cartão de Credito">Cartão de Credito</option>
   <option value="Boleto">Boleto</option>
   <option value="Pix">Pix</option>
