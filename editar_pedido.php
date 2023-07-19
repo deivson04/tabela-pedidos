@@ -38,7 +38,7 @@ if(isset($_GET['codigo'])){
  
 
 <form action="<?=$destino; ?>" method="post"> 
-
+<?= @$oculto; ?>
 <div class="form-label">
     <label for="cliente" class="form-label">Nome do Cliente:</label>
     <input type="text" value="<?php echo $pedido->getNomeDoCliente() ?>" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Enter client" required>
@@ -65,19 +65,22 @@ if(isset($_GET['codigo'])){
   </div>
   <br> 
 <div class="form-label">
+
 <select class="form-select" id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
-  <option value="<?php echo isset($pedido)?$pedido->getMetodoDePagamento():""; ?>"></option>
+  <option><?php echo isset($pedido)?$pedido->getMetodoDePagamento():""; ?></option>
   <option value="Cartão de Credito">Cartão de Credito</option>
   <option value="Boleto">Boleto</option>
   <option value="Pix">Pix</option>
   <option value="Á Vista">Á Vista</option>
+  
 </select>  
+
 </div>
 <br>
 <br>
 <div class="form-label">  
-<select class="form-select" value="<?php echo isset($pedido)?$pedido->getParcelamento():""; ?>" id="parcela" name="parcelamento" aria-label="Default select example">
-  <option selected>Escolha a Quantidade de Parcelas</option>
+<select class="form-select" id="parcela" name="parcelamento" aria-label="Default select example">
+  <option><?php echo isset($pedido)?$pedido->getParcelamento():""; ?></option>
   <option value="1x">1x</option>
   <option value="2x">2x</option>
   <option value="3x">3x</option>

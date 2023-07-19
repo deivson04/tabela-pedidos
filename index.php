@@ -46,7 +46,7 @@ if(isset($_GET['codigo'])){
 <table class="table table-hover">
  
 <thead>
-        <th>#</th>
+        <th>ID</th>
         <th>Nome do Cliente</th>
         <th>Nome do Salão</th>
         <th>Data do Pedido</th>
