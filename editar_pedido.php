@@ -4,16 +4,16 @@ require 'repositorio_pedidos.php';
 
 $pedidos = $repositorio->getListaPedido();
 
-$destino = "cadastrar_pedido.php";
+//  $destino = "cadastrar_pedido.php";
 
 if(isset($_GET['codigo'])){
   $codigo = $_GET['codigo']; //Guardamos o codigo enviado na variável $codigo
   //Obtemos o objeto pedido relativo ao código
   $pedido = $repositorio->buscarPedido($codigo);
  //Agora a variável destino vai apontar para alterar_pedido.php
- $destino = "alterar_pedido.php";
+  $destino = "alterar_pedido.php";
  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
- $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
+//  $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
 }
 ?>
 
@@ -38,29 +38,28 @@ if(isset($_GET['codigo'])){
  
 
 <form action="<?=$destino; ?>" method="post"> 
-<?= @$oculto; ?>
 <div class="form-label">
-    <label for="cliente" class="form-label">Nome do Cliente:</label>
+    <label for=" nome do cliente" class="form-label">Nome do Cliente:</label>
     <input type="text" value="<?php echo $pedido->getNomeDoCliente() ?>" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Enter client" required>
   </div>
   
   <div class="form-label">
-    <label for="salao" class="form-label">Nome do Salão:</label>
+    <label for="nome do salao" class="form-label">Nome do Salão:</label>
     <input type="text" value="<?php echo isset($pedido)?$pedido->getNomeDoSalao():""; ?>" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
   </div>
   
   <div class="form-label">  
-  <label for="date" class="form-label">Data do Pedido:</label>
+  <label for="data do pedido" class="form-label">Data do Pedido:</label>
     <input type="date" value="<?php echo isset($pedidos)?$pedido->getDataDoPedido():""; ?>" name="dataDoPedido" class="form-control" id="dataDoPedido" style="min-width:300px;"  placeholder="Enter Date" required>
   </div>
    
   <div class="form-label">
-    <label for="bairro" class="form-label">Bairro do Salão:</label>
+    <label for="bairro do salao" class="form-label">Bairro do Salão:</label>
     <input type="text" value="<?php echo isset($pedido)?$pedido->getBairroDoSalao():""; ?>" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="Enter Neighborhood" required>
   </div>
   
   <div class="form-label">
-  <label for="descricao">Descriçao do Pedido:</label>
+  <label for="descricao do pedido">Descriçao do Pedido:</label>
   <textarea name="descricaoDoPedido" class="form-control" rows="5" required><?php echo isset($pedido)?$pedido->getDescricaoDoPedido():"";?></textarea>
   </div>
   <br> 

@@ -12,8 +12,8 @@ if(isset($_GET['codigo'])){
   $pedido = $repositorio->buscarPedido($codigo);
  //Agora a variável destino vai apontar para alterar_pedido.php
  $destino = "alterar_pedido.php";
- //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
- $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
+//  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
+//  $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
 }
 ?>
 
