@@ -10,9 +10,9 @@ if(isset($_GET['codigo'])){
   //Obtemos o objeto prato relativo ao código
   $pedido = $repositorio->buscarPedido($codigo);
  //Agora a variável destino vai apontar para alterar_pedido.php
- $destino = "alterar_pedido.php";
+//  $destino = "alterar_pedido.php";
  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
- $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
+//  $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
 }
 ?>
 
@@ -45,32 +45,31 @@ if(isset($_GET['codigo'])){
 </ul>
 
 <form action="<?=$destino; ?>" method="post"> 
-<?= @$oculto; ?>
 <div class="form-label">
     <label for="cliente" class="form-label">Nome do Cliente:</label>
-    <input type="text" value="<?php echo isset($pedido)?$pedido->getNomeDoCliente():""; ?>" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Enter client" required>
+    <input type="text" value="" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Enter client" required>
   </div>
   
   <div class="form-label">
     <label for="salao" class="form-label">Nome do Salão:</label>
-    <input type="text" value="<?php echo isset($pedido)?$pedido->getNomeDoSalao():""; ?>" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
+    <input type="text" value="" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
   </div>
 
   <div class="form-label">
     <label for="date" class="form-label">Data do Pedido:</label>
-    <input type="date" value="<?php echo isset($pedido)?$pedido->STR_TO_DATE(getDataDoPedido()):""; ?>" name="dataDoPedido" class="form-control" id="dataDoPedido" style="min-width:300px;"  placeholder="Enter Date" required>
+    <input type="date" value="" name="dataDoPedido" class="form-control" id="dataDoPedido" style="min-width:300px;" data-format="00/00/0000"  placeholder="dd/mm/yyyy" required>
   </div>
   
   <div class="form-label">
     <label for="bairro" class="form-label">Bairro do Salão:</label>
-    <input type="text" value="<?php echo isset($pedido)?$pedido->getBairroDoSalao():""; ?>" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="Enter Neighborhood" required>
+    <input type="text" value="" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="Enter Neighborhood" required>
   </div>
   
   <label for="descricao">Descriçao do Pedido:</label>
-  <textarea name="descricaoDoPedido" value="<?php echo isset($pedido)?$pedido->getDescricaoDoPedido():"";?>" class="form-control" rows="5" id="descricao" required></textarea>
+  <textarea name="descricaoDoPedido" value="" class="form-control" rows="5" id="descricao" required></textarea>
   
   <br> 
-  <select class="form-select" value="<?php echo isset($pedido)?$pedido->getMetodoDePagamento():""; ?>" id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
+  <select class="form-select" value="" id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
   <option selected>Escolha a Forma de Pagamento</option>
   <option value="Cartão de Credito">Cartão de Credito</option>
   <option value="Boleto">Boleto</option>
@@ -79,7 +78,7 @@ if(isset($_GET['codigo'])){
 </select>  
 <br>
 <br>
-  <select class="form-select" value="<?php echo isset($pedido)?$pedido->getParcelamento():""; ?>" id="parcela" name="parcelamento" aria-label="Default select example">
+  <select class="form-select" value="" id="parcela" name="parcelamento" aria-label="Default select example">
   <option selected>Escolha a Quantidade de Parcelas</option>
   <option value="1x">1x</option>
   <option value="2x">2x</option>

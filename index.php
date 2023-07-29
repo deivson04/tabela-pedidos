@@ -13,8 +13,8 @@ if(isset($_GET['codigo'])){
  //Agora a variável destino vai apontar para alterar_pedido.php
  $destino = "alterar_pedido.php";
 //  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
-//  $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
-}
+//   $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
+ }
 ?>
 
 <!doctype html>
@@ -66,7 +66,7 @@ if(isset($_GET['codigo'])){
     <td><?php echo $pedidoTemporario->getCodigo() ?></td>
     <td><?php echo $pedidoTemporario->getNomeDoCliente() ?></td>
         <td><?php echo $pedidoTemporario->getNomeDoSalao() ?></td>
-        <td><?php echo $pedidoTemporario->getDataDoPedido() ?></td>
+        <td><?php echo date('d/m/Y',  strtotime($pedidoTemporario->getDataDoPedido())); ?></td>
         <td><?php echo $pedidoTemporario->getBairroDoSalao() ?></td>
         <td><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></td>
         <td><?php echo $pedidoTemporario->getMetodoDePagamento() ?></td>

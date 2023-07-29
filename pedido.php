@@ -24,7 +24,7 @@ class Pedido {
 	}
 		
 	function getCodigo(){
-		return $this->codigo;
+		return $this -> codigo;
 	}
     
     function getNomeDoCliente() {

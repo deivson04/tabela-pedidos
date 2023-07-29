@@ -13,7 +13,7 @@ if(isset($_GET['codigo'])){
  //Agora a variável destino vai apontar para alterar_pedido.php
   $destino = "alterar_pedido.php";
  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
-//  $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
+  // $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
 }
 ?>
 
@@ -96,7 +96,9 @@ if(isset($_GET['codigo'])){
 </div>
 <br>  
 <br>  
-<button type="submit" class="btn btn-primary">Salvar</button>
+
+ <input type="hidden" name="codigo" value="<?= $pedido->getCodigo(); ?>" />
+ <p><input type="submit" name="submit" class="btn btn-primary" value="alterar" /></p>
 
 
 
