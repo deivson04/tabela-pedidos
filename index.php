@@ -73,7 +73,7 @@ if(isset($_GET['codigo'])){
         <td><?php echo $pedidoTemporario->getParcelamento() ?></td>
         <td class="col-md-1"><a class="btn btn-danger" href="editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></td>
         <td class="col-md-1"><a class="btn btn-danger" href="remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></td>
-				<td class="col-md-1"><a class="btn btn-danger" href="gerarPdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></td> 
+				<td class="col-md-1"><a class="btn btn-danger" href="gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></td> 
    
     
     
