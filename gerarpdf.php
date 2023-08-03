@@ -25,44 +25,44 @@ foreach ($pedido as $pedidoTemporario ) {
     $pdf->SetFont('arial','B',12);
     $pdf->Cell(30,20,"ID: ",0,0,'L');
     $pdf->setFont('arial','',12);
-    $pdf->Cell(0,20,$pedidoTemporario,['codigo'],0,1,'L');
+    $pdf->Cell(0,20,"$pedidoTemporario->getCodigo()",0,1,'L');
      
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Nome do Cliente: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Nome do Cliente: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
     
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Nome do Salão: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,$pedidoTemporario['nomeDoSalao'],0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Nome do Salão: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
     
-    // $pdf->Ln(20);
+    $pdf->Ln(20);
     
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Data do Pedido: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,date('d/m/Y',  strtotime($pedidoTemporario['dataDoPedido'])),0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Data do Pedido: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,date('d/m/Y',  strtotime("$pedidoTemporario")),0,1,'L');
 
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Bairo do Salão: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,$pedidoTemporario['bairroDoSalao'],0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Bairo do Salão: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
 
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Descrição do Pedido: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,$pedidoTemporario['descricaoDoPedido'],0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Descrição do Pedido: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
    
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Metodo de Pagamento: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,$pedidoTemporario['metodoDePagamento'],0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Metodo de Pagamento: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
 
-    // $pdf->SetFont('arial','B',12);
-    // $pdf->Cell(100,20,"Parcelamento: ",0,0,'L');
-    // $pdf->setFont('arial','',12);
-    // $pdf->Cell(0,20,$pedidoTemporario['parcelamento'],0,1,'L');
+    $pdf->SetFont('arial','B',12);
+    $pdf->Cell(100,20,"Parcelamento: ",0,0,'L');
+    $pdf->setFont('arial','',12);
+    $pdf->Cell(0,20,"$pedidoTemporario",0,1,'L');
 
 }
     //gerando o arquivo pedidoAlfparf.pdf
