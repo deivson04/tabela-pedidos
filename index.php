@@ -20,8 +20,9 @@ if(isset($_GET['codigo'])){
 <!doctype html>
 <html lang="pt">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Tabela De Pedidos</title>
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -71,9 +72,9 @@ if(isset($_GET['codigo'])){
         <td><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></td>
         <td><?php echo $pedidoTemporario->getMetodoDePagamento() ?></td>
         <td><?php echo $pedidoTemporario->getParcelamento() ?></td>
-        <td class="col-md-1"><a class="btn btn-danger" href="editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></td>
-        <td class="col-md-1"><a class="btn btn-danger" href="remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></td>
-				<td class="col-md-1"><a class="btn btn-danger" href="gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></td> 
+        <td class="col-md-1"><a class="btn btn-primary" href="editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></td>
+        <td class="col-md-1"><a class="btn btn-primary" href="remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></td>
+				<td class="col-md-1"><a class="btn btn-primary" href="gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></td> 
    
     
     

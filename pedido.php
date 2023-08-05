@@ -2,14 +2,14 @@
 
 class Pedido {
 
-	public $codigo;
-	public $nomeDoCliente;
-	public $nomeDoSalao;
-	public $dataDoPedido;
-    public $bairroDoSalao;
-    public $descricaoDoPedido;
-    public $metodoDePagamento;
-    public $parcelamento;
+	private $codigo;
+	private $nomeDoCliente;
+	private $nomeDoSalao;
+	private $dataDoPedido;
+    private $bairroDoSalao;
+    private $descricaoDoPedido;
+    private $metodoDePagamento;
+    private $parcelamento;
 
 	function __construct( $codigo, $nomeDoCliente, $nomeDoSalao, $dataDoPedido, $bairroDoSalao, $descricaoDoPedido, $metodoDePagamento, $parcelamento) {
 			
