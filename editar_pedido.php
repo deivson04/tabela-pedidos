@@ -99,18 +99,10 @@ if(isset($_GET['codigo'])){
 <br>  
 
  <input type="hidden" name="codigo" value="<?= $pedido->getCodigo(); ?>" />
- <p><input type="submit" name="submit" class="btn btn-primary" value="alterar" /></p>
-
-
-
-
-
-
+ <p><input type="submit" name="submit" class="btn btn-primary" value="salvar" /></p>
  
-</div>
-  
 </form>     
-      
+</div>     
     
 
   <script src="js/bootstrap.bundle.min.js"></script> 
