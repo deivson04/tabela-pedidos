@@ -43,59 +43,40 @@ if(isset($_GET['codigo'])){
   </li>
 </ul>
 
-
-<table class="table table-hover">
- 
-<thead>
-        <th>ID</th>
-        <th>Nome do Cliente</th>
-        <th>Nome do Salão</th>
-        <th>Data do Pedido</th>
-        <th>Bairro do Salão</th>
-        <th>Descrição do Pedido</th>
-        <th>Metodo de Pagamento</th>
-        <th>Parcelamento</th>
-       
-</thead>
+<div class="row linha-titulo">
+    <div class="col-md-1 col-sm-1 titulo">ID</div>
+    <div class="col-md-1 col-sm-1 titulo">Nome do Cliente</div>
+    <div class="col-md-1 col-sm-1 titulo">Nome do Salão</div>
+    <div class="col-md-1 col-sm-1 titulo">Data do Pedido</div>
+    <div class="col-md-1 col-sm-1 titulo">Bairro do Salão</div>
+    <div class="col-md-2 col-sm-2 titulo">Descrição do Pedido</div>
+    <div class="col-md-1 col-sm-1 titulo">Met. Pagamento</div>
+    <div class="col-md-1 col-sm-1 titulo">Parcelamento</div>
+</div>
    
     
     
-    <?php
-     while($pedidoTemporario = array_shift($pedidos)){                               						
-		?>
-    <tr>
-    <td><?php echo $pedidoTemporario->getCodigo() ?></td>
-    <td><?php echo $pedidoTemporario->getNomeDoCliente() ?></td>
-        <td><?php echo $pedidoTemporario->getNomeDoSalao() ?></td>
-        <td><?php echo date('d/m/Y',  strtotime($pedidoTemporario->getDataDoPedido())); ?></td>
-        <td><?php echo $pedidoTemporario->getBairroDoSalao() ?></td>
-        <td><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></td>
-        <td><?php echo $pedidoTemporario->getMetodoDePagamento() ?></td>
-        <td><?php echo $pedidoTemporario->getParcelamento() ?></td>
-        <td class="col-md-1"><a class="btn btn-primary" href="editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></td>
-        <td class="col-md-1"><a class="btn btn-primary" href="remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></td>
-				<td class="col-md-1"><a class="btn btn-primary" href="gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></td> 
-   
-    
-    
-					        
-					       
-					
-      </tr>
-      <?php                
-			  }               
-			?>
-    
-    
-  </table>
-
-  
-       
-      
-    
-
-  <script src="js/bootstrap.bundle.min.js"></script> 
-  <script src="js/tabelaPedidos.js"></script> 
+<?php
+    while($pedidoTemporario = array_shift($pedidos)){                               						
+?>
+    <div class="row linha-corpo">
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getCodigo() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDoCliente() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDoSalao() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo date('d/m/Y',  strtotime($pedidoTemporario->getDataDoPedido())); ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getBairroDoSalao() ?></div>
+        <div class="col-md-2 col-sm-2 corpo"><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getMetodoDePagamento() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getParcelamento() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></div>
+</div>
+<?php                
+    }               
+?>
+<script src="js/bootstrap.bundle.min.js"></script> 
+<script src="js/tabelaPedidos.js"></script> 
 
 </body>
 </html>
