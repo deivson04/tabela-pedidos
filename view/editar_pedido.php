@@ -1,6 +1,10 @@
 <?php
+session_start();
 
-require 'repositorio_pedidos.php';
+if(!isset($_SESSION["email"])) {
+  header('Location: login.php');
+}
+require '../model/repositorio_pedidos.php';
 
 $pedidos = $repositorio->getListaPedido();
 
@@ -11,7 +15,7 @@ if(isset($_GET['codigo'])){
   //Obtemos o objeto pedido relativo ao código
   $pedido = $repositorio->buscarPedido($codigo);
  //Agora a variável destino vai apontar para alterar_pedido.php
-  $destino = "alterar_pedido.php";
+  $destino = "../controller/alterar_pedido.php";
  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
   // $oculto = '<input type="hidden" name="codigo" value="'. $codigo .'" />'; 
 }
@@ -27,8 +31,8 @@ if(isset($_GET['codigo'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Tabela De Pedidos</title>
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
 </head>
 <body>
 

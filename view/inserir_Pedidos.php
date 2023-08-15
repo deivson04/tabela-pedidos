@@ -1,9 +1,14 @@
 <?php
-require 'repositorio_pedidos.php';
+session_start();
+
+if(!isset($_SESSION["email"])) {
+  header('Location: login.php');
+}
+require '../model/repositorio_pedidos.php';
 
 $pedidos = $repositorio->getListaPedido();
 
-$destino = "cadastrar_pedido.php";
+$destino = "../controller/cadastrar_pedido.php";
 
 if(isset($_GET['codigo'])){
   $codigo = $_GET['codigo']; //Guardamos o codigo enviado na variável $codigo

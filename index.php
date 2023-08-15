@@ -1,10 +1,14 @@
 <?php
+session_start();
 
-require 'repositorio_pedidos.php';
+if(!isset($_SESSION["email"])) {
+  header('Location: view/login.php');
+}
+require 'model/repositorio_pedidos.php';
 
 $pedidos = $repositorio->getListaPedido();
 
-$destino = "cadastrar_pedido.php";
+$destino = "controller/cadastrar_pedido.php";
 
 if(isset($_GET['codigo'])){
   $codigo = $_GET['codigo']; //Guardamos o codigo enviado na variável $codigo
@@ -29,7 +33,7 @@ if(isset($_GET['codigo'])){
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-   
+<div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/deslogar.php" role="button">Logout</a></div>
  <div class='container'>
 
    <h1>TABELA DE PEDIDOS</h1>
@@ -68,9 +72,9 @@ if(isset($_GET['codigo'])){
         <div class="col-md-2 col-sm-2 corpo"><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getMetodoDePagamento() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getParcelamento() ?></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></div>
 </div>
 <?php                
     }               

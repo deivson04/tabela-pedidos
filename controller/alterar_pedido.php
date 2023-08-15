@@ -1,5 +1,5 @@
 <?php
-   require 'repositorio_pedidos.php';
+   require '../model/repositorio_pedidos.php';
    // echo "<pre>";
    // var_dump($_REQUEST);
    // die;
@@ -10,7 +10,7 @@
    //Atualiza o pedido existente no banco com os dados recebidos pelo form
    $repositorio->alterarPedido($pedidoRecebido);
    
-   header('Location: index.php');
+   header('Location: ../index.php?editado=true');
    exit;
 ?>
 
