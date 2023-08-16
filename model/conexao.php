@@ -1,6 +1,6 @@
 <?php
   
-  class Conexao{
+  class Conexao {
   	//Atributos da classe conexão.
   	//Essas informações são relevantes para o acesso ao banco. Por exemplo, host, usuário e senha.
   	

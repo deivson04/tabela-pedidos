@@ -1,7 +1,7 @@
 <?php
     require 'conexao.php';
-	include 'pedido.php';
- 	include 'irepositorio_pedido.php';
+	include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/controller/pedido.php';
+ 	include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/view/irepositorio_pedido.php';
 	
 	//Classe de repositório de pedidos que implementa IRepositorioPedidos
 	class RepositorioPedidos implements IRepositorioPedido {

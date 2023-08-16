@@ -1,7 +1,11 @@
 <?php
+session_start();
 
-require 'repositorio_pedidos.php';
-require 'lib/fpdf.php';
+if(!isset($_SESSION["email"])) {
+  header('Location: login.php');
+}
+require '../model/repositorio_pedidos.php';
+require '../lib/fpdf.php';
 
 $pdf = new FPDF('P','pt','A4');
 $pdf->AddPage();
