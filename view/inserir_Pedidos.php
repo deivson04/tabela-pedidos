@@ -23,8 +23,8 @@ if(isset($_GET['codigo'])){
 
 
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -43,10 +43,10 @@ if(isset($_GET['codigo'])){
  
  <ul class="nav nav-pills">
   <li class="nav-item">
-    <a class="nav-link active" href="index.php">Pedidos</a>
+    <a class="nav-link active" href="../index.php">Pedidos</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="inserir_Pedidos.php">Inserir Pedidos</a>
+    <a class="nav-link" href="#">Inserir Pedidos</a>
   </li>
 </ul>
 
@@ -102,17 +102,9 @@ if(isset($_GET['codigo'])){
 <br>  
 <br>  
 <button type="submit" class="btn btn-primary">Salvar</button>
-
-
-
-
-
-
- 
-</div>
   
 </form>     
-      
+</div>      
     
 
   <script src="js/bootstrap.bundle.min.js"></script> 

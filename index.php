@@ -22,7 +22,7 @@ if(isset($_GET['codigo'])){
 ?>
 
 <!doctype html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -43,7 +43,7 @@ if(isset($_GET['codigo'])){
     <a class="nav-link active" href="#">Pedidos</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="inserir_Pedidos.php">Inserir Pedidos</a>
+    <a class="nav-link" href="view/inserir_Pedidos.php">Inserir Pedidos</a>
   </li>
 </ul>
 
