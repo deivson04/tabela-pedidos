@@ -11,23 +11,29 @@
 </head>
 <body>
 <div class='container'>
-    <h3>Login</h3>
+    <h3>FAZER CADASTRO</h3>
     
     
     <form action="../controller/controllerLogin.php" method="post">
     <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="name" class="form-control" name="nome" id="" aria-describedby="emailHelp" placeholder="Digite seu Nome" required>
+    </div>
+    
+    <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp" placeholder="Digite seu Email" required>
     </div>
+    
     <div class="form-group">
         <label for="exampleInputPassword1">Senha</label>
         <input type="password" class="form-control" name="senha" id="" placeholder="Senha" required>
     </div>
     <br>
-    <input type="submit" class="btn btn-primary" value="Entrar">
+    <input type="submit" class="btn btn-primary" value="Cadastrar">
     <br>
     <br>
-    <a href="cadastrarLogin.php">ou cadastre-se</a>
+    <a href="../index.php">Fazer Login</a>
     
 </form>
 </div>
