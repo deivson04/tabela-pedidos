@@ -29,11 +29,13 @@ if(isset($_GET['codigo'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Relatório De Pedidos</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-<div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/deslogar.php" role="button">Logout</a></div>
+<div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
+  <a class="btn btn-primary" href="controller/deslogar.php" role="button">Logout</a>
+</div>
  <div class='container'>
 
    <h1>TABELA DE PEDIDOS</h1>
@@ -74,12 +76,12 @@ if(isset($_GET['codigo'])){
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getParcelamento() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></div>
         <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Gerar Pdf</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Pdf</a></div>
 </div>
 <?php                
     }               
 ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min"></script>
 <script src="js/tabelaPedidos.js"></script> 
 
 </body>

@@ -31,22 +31,24 @@ if(isset($_GET['codigo'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Tabela De Pedidos</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-
+<div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
+  <a class="btn btn-primary" href="../controller/deslogar.php" role="button">Logout</a>
+</div>
 <div class='container'>
  
  <h1>INSERIR PEDIDOS</h1>
  
  <ul class="nav nav-pills">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.php">Pedidos</a>
+    <a class="nav-link" href="../index.php">Pedidos</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Inserir Pedidos</a>
+    <a class="nav-link active" href="#">Inserir Pedidos</a>
   </li>
 </ul>
 
@@ -107,7 +109,7 @@ if(isset($_GET['codigo'])){
 </div>      
     
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="../js/bootstrap.min"></script>
   <script src="js/tabelaPedidos.js"></script> 
 
 </body>
