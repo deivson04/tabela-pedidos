@@ -10,7 +10,7 @@ class LoginModel {
     public function __construct()
     {
         //Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
-        $this->conexao = new Conexao("127.0.0.1", "root", "", "tabelapedidos");
+        $this->conexao = new Conexao("loalhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
         
         //Conecta ao banco de dados
         if ($this->conexao->conectar() == false) {

@@ -19,6 +19,7 @@
         <label for="exampleInputEmail1">Email</label>
         <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp" placeholder="Digite seu Email" required>
     </div>
+    <br>
     <div class="form-group">
         <label for="exampleInputPassword1">Senha</label>
         <input type="password" class="form-control" name="senha" id="" placeholder="Senha" required>
