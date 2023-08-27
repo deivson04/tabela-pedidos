@@ -31,13 +31,14 @@ if(isset($_GET['codigo'])){
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
 <div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
-  <a class="btn btn-primary" href="controller/deslogar.php" role="button">Logout</a>
+  <a class="btn btn-primary" href="controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
 </div>
- <div class='container'>
+ <div class='container  '>
 
    <h1>TABELA DE PEDIDOS</h1>
    
@@ -65,7 +66,7 @@ if(isset($_GET['codigo'])){
     while($pedidoTemporario = array_shift($pedidos)){                               						
 ?>
     <div class="row linha-corpo">
-        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getCodigo() ?></div>
+        <div class="col-md-1 col-sm-3 corpo"><?php echo $pedidoTemporario->getCodigo() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDoCliente() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDoSalao() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo date('d/m/Y',  strtotime($pedidoTemporario->getDataDoPedido())); ?></div>
@@ -73,9 +74,9 @@ if(isset($_GET['codigo'])){
         <div class="col-md-2 col-sm-2 corpo"><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getMetodoDePagamento() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getParcelamento() ?></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Alterar</a></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Remover</a></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>" role="button">Pdf</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-brush"></i>Alterar</a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-x">Remover</i></a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-arrow-up-circle-fill"></i>GerarPdf</a></div>
 </div>
 <?php                
     }               

@@ -33,11 +33,12 @@ if(isset($_GET['codigo'])){
     <!-- Bootstrap CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
 
 <div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
-  <a class="btn btn-primary" href="../controller/deslogar.php" role="button">Logout</a>
+  <a class="btn btn-primary" href="../controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
 </div>
 <div class='container'>
  
