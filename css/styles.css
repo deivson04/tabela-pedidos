@@ -1,5 +1,7 @@
 
-
+body {
+   background: #B0E0E6;
+}
 
 header .container   {
  margin: auto; 
@@ -33,7 +35,12 @@ h1 {
    border-bottom: solid;
 }
 
+h3 {
+   text-align: center;
+}
 
+a {
+   color: #000000;
+}
 
- 
 

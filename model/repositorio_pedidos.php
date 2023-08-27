@@ -1,7 +1,7 @@
 <?php
     require 'conexao.php';
-	include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/controller/pedido.php';
- 	include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/view/irepositorio_pedido.php';
+	include $_SERVER["DOCUMENT_ROOT"] . '/gitTabelaPedido/controller/pedido.php';
+ 	include $_SERVER["DOCUMENT_ROOT"] . '/gitTabelaPedido/view/irepositorio_pedido.php';
 	
 	//Classe de repositório de pedidos que implementa IRepositorioPedidos
 	class RepositorioPedidos implements IRepositorioPedido {
@@ -13,7 +13,8 @@
 		public function __construct()
 		{
 			//Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
-			$this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
+			// $this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
+			$this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
 			
 			//Conecta ao banco de dados
 			if ($this->conexao->conectar() == false) {
@@ -21,6 +22,16 @@
 			}
 		}
 		
+		public function cadastrarLogin($login)
+		{
+			$email = $login->getEmail();
+			$senha = $login->getSenha();
+			
+			$sql = "INSERT INTO login (id, email, senha) VALUES
+			(NULL, '$email', '$senha')";
+			
+			$this->conexao->executarQuery($sql);
+		}
 		//Cadastra um novo pedido. Observe que a SQL é preparada e enviada para o banco. 
 		//O mesmo ocorre com o restante dos métodos dessa classe
 		public function cadastrarPedido($pedido)

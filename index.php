@@ -32,6 +32,7 @@ if(isset($_GET['codigo'])){
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
+
 <body>
 <div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
   <a class="btn btn-primary" href="controller/deslogar.php" role="button">Logout</a>
@@ -40,14 +41,12 @@ if(isset($_GET['codigo'])){
 
    <h1>TABELA DE PEDIDOS</h1>
    
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Pedidos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="view/inserir_Pedidos.php">Inserir Pedidos</a>
-  </li>
-</ul>
+  
+  <form class="container-fluid justify-content-start">
+    <a class="btn btn-outline-success me-2 active" href="#">Pedidos</a>
+    <a class="btn btn-sm btn-outline-secondary"  href="view/inserir_Pedidos.php">Inserir Pedidos</a>
+  </form>
+
 
 <div class="row linha-titulo">
     <div class="col-md-1 col-sm-1 titulo">ID</div>
@@ -85,5 +84,6 @@ if(isset($_GET['codigo'])){
 <script src="js/tabelaPedidos.js"></script> 
 
 </body>
+  
 </html>
 

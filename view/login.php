@@ -6,33 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RELATÓRIO DE PEDIDOS</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">    
+    <link href="../css/styles.css" rel="stylesheet">
 </head>
 <body>
 <div class='container'>
-    <h3>Login</h3>
+    <h3>CLIENT LOGIN</h3>
     
     
     <form action="../controller/controllerLogin.php" method="post">
     <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp" placeholder="Digite seu Email" required>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" name="senha" id="" placeholder="Senha" required>
-    </div>
-    <br>
-    <input type="submit" class="btn btn-primary" value="Entrar">
-    <br>
-    <br>
-    <a href="cadastrarLogin.php">ou cadastre-se</a>
-    
-</form>
+            <div class="   col-md-6 offset-md-3">
+                <label>SEU E-MAIL</label>
+                <input type="text" name="email" class="form-control " placeholder="E-MAIL" required="" >    
+            </div>
+        </div>
+        <br>  
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label>SUA SENHA</label>  
+                <input type="password" name="senha" class="form-control" placeholder="SENHA" required="" >
+            </div>
+        </div>      
+        <br>
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <input type="submit" value="Entrar" class="btn btn-dark" name=""> 
+            </div>
+        </div>
+        </div>
+        
+        <p class="link">   
+        <div class="col-md-6 offset-md-3">      
+               não tem conta?
+            <a href="cadastrar_Login.php">Cadastre-se</a>
+          </p>
+        
+        <p class="link1">   
+        <div class="col-md-6 offset-md-0">      
+            <a href="#">Esquecir minha senha</a>
+        </p>  
+        </div>  
+    </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min"></script>
 <script src="js/tabelaPedidos.js"></script>
 
 </body>

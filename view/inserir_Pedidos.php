@@ -32,7 +32,7 @@ if(isset($_GET['codigo'])){
     <title>Tabela De Pedidos</title>
     <!-- Bootstrap CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -43,14 +43,10 @@ if(isset($_GET['codigo'])){
  
  <h1>INSERIR PEDIDOS</h1>
  
- <ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.php">Pedidos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Inserir Pedidos</a>
-  </li>
-</ul>
+ <form class="container-fluid justify-content-start">
+    <a class="btn btn-outline-success me-2" href="../index.php">Pedidos</a>
+    <a class="btn btn-sm btn-outline-secondary active"  href="#">Inserir Pedidos</a>
+  </form>
 
 <form action="<?=$destino; ?>" method="post"> 
 <div class="form-label">
@@ -77,6 +73,7 @@ if(isset($_GET['codigo'])){
   <textarea name="descricaoDoPedido" value="" class="form-control" rows="5" id="descricao" required></textarea>
   
   <br> 
+  <label for="descricao">Metodo de pagamento:</label>
   <select class="form-select" value="" id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
   <option selected>Escolha a Forma de Pagamento</option>
   <option value="Cartão de Credito">Cartão de Credito</option>
@@ -85,7 +82,7 @@ if(isset($_GET['codigo'])){
   <option value="Á Vista">Á Vista</option>
 </select>  
 <br>
-<br>
+<label for="descricao">Parcelamento:</label>
   <select class="form-select" value="" id="parcela" name="parcelamento" aria-label="Default select example">
   <option selected>Escolha a Quantidade de Parcelas</option>
   <option value="1x">1x</option>
@@ -101,8 +98,7 @@ if(isset($_GET['codigo'])){
   <option value="11x">11x</option>
   <option value="12x">12x</option>
 </select>  
-<br>  
-<br>  
+<br>    
 <button type="submit" class="btn btn-primary">Salvar</button>
   
 </form>     
