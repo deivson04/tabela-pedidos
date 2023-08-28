@@ -52,12 +52,12 @@ if(isset($_GET['codigo'])){
 <div class="row linha-titulo">
     <div class="col-md-1 col-sm-1 titulo">ID</div>
     <div class="col-md-1 col-sm-1 titulo">Nome do Cliente</div>
-    <div class="col-md-1 col-sm-1 titulo">Nome do Salão</div>
+    <div class="col-md-1 col-sm-1 titulo">Nome da Loja</div>
     <div class="col-md-1 col-sm-1 titulo">Data do Pedido</div>
-    <div class="col-md-1 col-sm-1 titulo">Bairro do Salão</div>
+    <div class="col-md-1 col-sm-1 titulo">Bairro Da Loja</div>
     <div class="col-md-2 col-sm-2 titulo">Descrição do Pedido</div>
     <div class="col-md-1 col-sm-1 titulo">Met. Pagamento</div>
-    <div class="col-md-1 col-sm-1 titulo">Parcelamento</div>
+    <div class="col-md-2 col-sm-1 titulo">Parcelamento</div>
 </div>
    
     
@@ -68,9 +68,9 @@ if(isset($_GET['codigo'])){
     <div class="row linha-corpo">
         <div class="col-md-1 col-sm-3 corpo"><?php echo $pedidoTemporario->getCodigo() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDoCliente() ?></div>
-        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDoSalao() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getNomeDaLoja() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo date('d/m/Y',  strtotime($pedidoTemporario->getDataDoPedido())); ?></div>
-        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getBairroDoSalao() ?></div>
+        <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getBairroDaLoja() ?></div>
         <div class="col-md-2 col-sm-2 corpo"><?php echo $pedidoTemporario->getDescricaoDoPedido() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getMetodoDePagamento() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getParcelamento() ?></div>

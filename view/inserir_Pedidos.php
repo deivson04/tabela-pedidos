@@ -52,12 +52,12 @@ if(isset($_GET['codigo'])){
 <form action="<?=$destino; ?>" method="post"> 
 <div class="form-label">
     <label for="cliente" class="form-label">Nome do Cliente:</label>
-    <input type="text" value="" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Enter client" required>
+    <input type="text" value="" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Nome do Clienta" required>
   </div>
   
   <div class="form-label">
-    <label for="salao" class="form-label">Nome do Salão:</label>
-    <input type="text" value="" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
+    <label for="salao" class="form-label">Nome da Loja:</label>
+    <input type="text" value="" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Nome da Loja" required>
   </div>
 
   <div class="form-label">
@@ -66,8 +66,8 @@ if(isset($_GET['codigo'])){
   </div>
   
   <div class="form-label">
-    <label for="bairro" class="form-label">Bairro do Salão:</label>
-    <input type="text" value="" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="Enter Neighborhood" required>
+    <label for="bairro" class="form-label">Bairro da Loja:</label>
+    <input type="text" value="" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="bairro da Loja" required>
   </div>
   
   <label for="descricao">Descriçao do Pedido:</label>

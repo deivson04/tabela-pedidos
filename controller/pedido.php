@@ -4,20 +4,20 @@ class Pedido {
 
 	private $codigo;
 	private $nomeDoCliente;
-	private $nomeDoSalao;
+	private $nomeDaLoja;
 	private $dataDoPedido;
-    private $bairroDoSalao;
+    private $bairroDaLoja;
     private $descricaoDoPedido;
     private $metodoDePagamento;
     private $parcelamento;
 
-	function __construct( $codigo, $nomeDoCliente, $nomeDoSalao, $dataDoPedido, $bairroDoSalao, $descricaoDoPedido, $metodoDePagamento, $parcelamento) {
+	function __construct( $codigo, $nomeDoCliente, $nomeDaLoja, $dataDoPedido, $bairroDaLoja, $descricaoDoPedido, $metodoDePagamento, $parcelamento) {
 			
 		$this->codigo = $codigo;	
 		$this -> nomeDoCliente = $nomeDoCliente;
-		$this -> nomeDoSalao = $nomeDoSalao;
+		$this -> nomeDaLoja = $nomeDaLoja;
 		$this -> dataDoPedido = $dataDoPedido;
-        $this -> bairroDoSalao = $bairroDoSalao;
+        $this -> bairroDoSalao = $bairroDaLoja;
         $this -> descricaoDoPedido = $descricaoDoPedido;
         $this -> metodoDePagamento = $metodoDePagamento;
         $this -> parcelamento = $parcelamento;
@@ -31,16 +31,16 @@ class Pedido {
 		return $this -> nomeDoCliente;
 	}
     
-	function getNomeDoSalao() {
-		return $this -> nomeDoSalao;
+	function getNomeDaLoja() {
+		return $this -> nomeDaLoja;
 	}
 
 	function getDataDoPedido() {
 		return $this -> dataDoPedido;
 	}
 
-	function getBairroDoSalao() {
-		return $this -> bairroDoSalao;
+	function getBairroDaLoja() {
+		return $this -> bairroDaLoja;
 	}
 
     function getDescricaoDoPedido() {

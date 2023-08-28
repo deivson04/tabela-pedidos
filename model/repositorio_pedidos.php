@@ -37,16 +37,16 @@
 		public function cadastrarPedido($pedido)
 		{
 			$nomeDoCliente = $pedido->getNomeDoCliente();
-			$nomeDoSalao = $pedido->getNomeDoSalao();
+			$nomeDaLoja = $pedido->getNomeDaLoja();
 			$dataDoPedido = $pedido->getDataDoPedido();
-			$bairroDoSalao = $pedido->getBairroDoSalao();
+			$bairroDaLoja = $pedido->getBairroDaLoja();
 			$descricaoDoPedido = $pedido->getDescricaoDoPedido();
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
 			
-			$sql = "INSERT INTO pedido (codigo, nomeDoCliente, nomeDoSalao, dataDoPedido, bairroDoSalao, descricaoDoPedido,
+			$sql = "INSERT INTO pedido (codigo, nomeDoCliente, nomeDaLoja, dataDoPedido, bairroDaLoja, descricaoDoPedido,
 			metodoDePagamento, parcelamento) VALUES
-			(NULL, '$nomeDoCliente', '$nomeDoSalao', '$dataDoPedido', '$bairroDoSalao', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento')";
+			(NULL, '$nomeDoCliente', '$nomeDaLoja', '$dataDoPedido', '$bairroDaLoja', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento')";
 			
 			$this->conexao->executarQuery($sql);
 		}
@@ -63,16 +63,16 @@
 		{
 			$codigo = $pedido->getCodigo();
 			$nomeDoCliente = $pedido->getNomeDoCliente();
-			$nomeDoSalao = $pedido->getNomeDoSalao();
+			$nomeDaLoja = $pedido->getNomeDaLoja();
 			$dataDoPedido = $pedido->getDataDoPedido();
-			$bairroDoSalao = $pedido->getBairroDoSalao();
+			$bairroDaLoja = $pedido->getBairroDaLoja();
 			$descricaoDoPedido = $pedido->getDescricaoDoPedido();
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
 
 			
 			$sql = "UPDATE pedido SET nomeDoCliente='$nomeDoCliente', 
-			nomeDoSalao='$nomeDoSalao', dataDoPedido='$dataDoPedido', bairroDoSalao='$bairroDoSalao', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
+			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDoSalao='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
 			WHERE codigo='$codigo'";
 			
 			$this->conexao->executarQuery($sql);
@@ -86,7 +86,7 @@
 			$linha = $this->conexao->obtemPrimeiroRegistroQuery("SELECT * FROM pedido WHERE codigo='$codigo'");
 			 
 			 //Cria um novo objeto pedido baseado na busca acima
-			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDoSalao'], $linha['dataDoPedido'],  $linha['bairroDoSalao'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'])	;
+			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'])	;
 			 
 			 return $pedido;
 		}
@@ -102,7 +102,7 @@
 			//Varre a lista de entradas da tabela pedidos e cria um novo objeto pedido para cada entrada da tabela
 			while($linha = mysqli_fetch_array($listagem)){
 				
-				$pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDoSalao'], $linha['dataDoPedido'],  $linha['bairroDoSalao'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento']);
+				$pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento']);
 			    array_push($arrayPedidos, $pedido);
 			}
 			
