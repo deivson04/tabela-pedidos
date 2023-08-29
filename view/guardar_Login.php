@@ -44,12 +44,7 @@ $destino = "../controller/cadastrar_login.php";
             <a href="login.php">Faça Login</a>
           </p>
     </div>
-    
-    <p class="link1">   
-        <div class="col-md-6 offset-md-3">      
-            <a href="#">Esquecir minha senha</a>
-        </p>  
-        </div>  
+      
 
 </form>
 </div>

@@ -12,4 +12,4 @@ if($retornoLogin->getEmail() == $login->getEmail() && $retornoLogin->getSenha() 
     $_SESSION["senha"] = $retornoLogin->getSenha();
     header('Location: ../index.php');
 }
-die("não pode logar");
+die(" Verifique se seu email ou senha está correto");
