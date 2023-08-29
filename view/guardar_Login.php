@@ -1,7 +1,7 @@
 <?php
-require '../model/repositorio_pedidos.php';
+require '../model/loginModel.php';
 
-$destino = "../controller/controllerLogin.php";
+$destino = "../controller/cadastrar_login.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $destino = "../controller/controllerLogin.php";
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RELATÓRIO DE PEDIDOS</title>
+    <title>Cadastro de Usuarios</title>
     <!-- Bootstrap CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"> 
     <link href="../css/styles.css" rel="stylesheet">
@@ -20,7 +20,7 @@ $destino = "../controller/controllerLogin.php";
     <h3>CADASTRO</h3>
     
     
-    <form action="<?$destino?>" method="post">
+    <form action="<?=$destino; ?>" method="post">
     
     <div class="form-group">
     <div class="col-md-6 offset-md-3">    

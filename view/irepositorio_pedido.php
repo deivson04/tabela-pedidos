@@ -1,6 +1,6 @@
 <?php
     
-    //Interface de repositorio para pratos. 
+    //Interface de repositorio para pedidos. 
 	interface IRepositorioPedido{
 		public function cadastrarPedido($pedido);
 		public function removerPedido($codigo);

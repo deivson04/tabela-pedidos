@@ -5,7 +5,14 @@ class Login {
 	private $id;
 	private $email;
 	private $senha;
-		
+
+	function __construct( $id, $email, $senha) {
+			
+		$this->id = $id;	
+		$this -> email = $email;
+	    $this -> senha = $senha;
+	}
+	
 	function getId(){
 		return $this->id;
 	}

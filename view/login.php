@@ -39,7 +39,7 @@
         <p class="link">   
         <div class="col-md-6 offset-md-3">      
                não tem conta?
-            <a href="cadastrar_Login.php">Cadastre-se</a>
+            <a href="guardar_Login.php">Cadastre-se</a>
           </p>
         
         <p class="link1">   

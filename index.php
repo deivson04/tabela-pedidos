@@ -35,10 +35,10 @@ if(isset($_GET['codigo'])){
 </head>
 
 <body>
-<div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
+<div class="offset-md-10 offset-sm-10 col-md-1 col-sm-1 offset-10 col-1">
   <a class="btn btn-primary" href="controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
 </div>
- <div class='container  '>
+ <div class='container'>
 
    <h1>TABELA DE PEDIDOS</h1>
    

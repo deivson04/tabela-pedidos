@@ -1,12 +1,14 @@
 <?php
 require 'conexao.php';
+include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/controller/classeLogin.php';
+include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/view/ilogin_model.php';
 
-class LoginModel {
+class LoginModel implements ILoginModel {
 
     //Objeto conexão que guardará a conexão com o banco
     private $conexao;
     
-    //Construtor do repositório de pratos
+    //Construtor do repositório 
     public function __construct()
     {
         //Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
@@ -18,7 +20,18 @@ class LoginModel {
             echo "Erro".mysqli_error();
         }
     }
-
+    
+    public function cadastrarLogin($login)
+		{
+			$email = $login->getEmail();
+			$senha = $login->getSenha();
+			
+			$sql = "INSERT INTO login (id, email, senha) VALUES
+			(NULL, '$email', '$senha')";
+			
+			$this->conexao->executarQuery($sql);
+		}
+        
     public function buscarLogin($objeto) {
 		$email = $objeto->getEmail();
         $sql = "SELECT 
@@ -27,7 +40,7 @@ class LoginModel {
                 WHERE email='$email'";
 
         $listagem = $this->conexao->executarQuery($sql);
-        $login = new Login();
+        $login = new Login(null,null,null);
         //Varre a lista de entradas da tabela pedidos e cria um novo objeto pedido para cada entrada da tabela
         while($linha = mysqli_fetch_array($listagem)){   
             $login->setId($linha["id"]);
@@ -40,3 +53,5 @@ class LoginModel {
         
     }
 }
+
+$repositorio = new LoginModel();
