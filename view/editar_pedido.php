@@ -50,7 +50,7 @@ if(isset($_GET['codigo'])){
   
   <div class="form-label">
     <label for="nome do salao" class="form-label">Nome do Salão:</label>
-    <input type="text" value="<?php echo isset($pedido)?$pedido->getNomeDoSalao():""; ?>" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
+    <input type="text" value="<?php echo isset($pedido)?$pedido->getNomeDaLoja():""; ?>" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Enter hall" required>
   </div>
   
   <div class="form-label">  
@@ -60,7 +60,7 @@ if(isset($_GET['codigo'])){
    
   <div class="form-label">
     <label for="bairro do salao" class="form-label">Bairro do Salão:</label>
-    <input type="text" value="<?php echo isset($pedido)?$pedido->getBairroDoSalao():""; ?>" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="Enter Neighborhood" required>
+    <input type="text" value="<?php echo isset($pedido)?$pedido->getBairroDaLoja():""; ?>" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="Enter Neighborhood" required>
   </div>
   
   <div class="form-label">

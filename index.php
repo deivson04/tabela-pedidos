@@ -40,7 +40,7 @@ if(isset($_GET['codigo'])){
 </div>
  <div class='container'>
 
-   <h1>TABELA DE PEDIDOS</h1>
+   <h1>RELATÓRIO DE PEDIDOS</h1>
    
   
   <form class="container-fluid justify-content-start">

@@ -13,8 +13,8 @@
 		public function __construct()
 		{
 			//Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
-			 $this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
-			//$this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
+			 //$this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
+			 $this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
 			
 			//Conecta ao banco de dados
 			if ($this->conexao->conectar() == false) {
@@ -62,7 +62,7 @@
 
 			
 			$sql = "UPDATE pedido SET nomeDoCliente='$nomeDoCliente', 
-			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDoSalao='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
+			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDaLoja='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
 			WHERE codigo='$codigo'";
 			
 			$this->conexao->executarQuery($sql);

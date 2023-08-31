@@ -11,7 +11,7 @@ $pdf = new FPDF('P','pt','A4');
 $pdf->AddPage();
 //$pdf->Image('imagens/logo.jpg');
 $pdf->SetFont('arial','',12);
-$pdf->Cell(0,30,"PEDIDO ALFPARF",0,1,'L');
+$pdf->Cell(0,30,utf8_decode("RELATÓRIO DE VENDAS"),0,1,'L');
 $pdf->Cell(0,1,"","B",1,'C');
 $pdf->ln(20);
 // echo "<pre>";
@@ -32,14 +32,14 @@ if(isset($_GET['codigo'])){
     $pdf->SetFont('arial','B',12);
     $pdf->Cell(100,20,"Nome do Cliente: ",0,0,'L');
     $pdf->setFont('arial','',12);
-    $pdf->Cell(0,20, utf8_decode($pedido->getNomeDoCliente()) ,0,1,'L');
+    $pdf->Cell(0,20, utf8_decode($pedido->getnomeDoCliente()) ,0,1,'L');
     
     $pdf->SetFont('arial','B',12);
-    $pdf->Cell(100,20, utf8_decode("Nome do Salão: "),0,0,'L');
+    $pdf->Cell(100,20, utf8_decode("Nome da loja: "),0,0,'L');
     $pdf->setFont('arial','',12);
-    $pdf->Cell(0,20, utf8_decode($pedido->getnomeDoSalao()) ,0,1,'L');
+    $pdf->Cell(0,20, utf8_decode($pedido->getnomeDaLoja()) ,0,1,'L');
     
-    $pdf->Ln(20);
+    //$pdf->Ln(20);
     
     $pdf->SetFont('arial','B',12);
     $pdf->Cell(100,20,"Data do Pedido: ",0,0,'L');
@@ -47,9 +47,9 @@ if(isset($_GET['codigo'])){
     $pdf->Cell(0,20,  date('d/m/Y',  strtotime($pedido->getdataDoPedido())) ,0,1,'L');
 
     $pdf->SetFont('arial','B',12);
-    $pdf->Cell(100,20, utf8_decode("Bairo do Salão: "),0,0,'L');
+    $pdf->Cell(100,20, utf8_decode("Bairro da loja: "),0,0,'L');
     $pdf->setFont('arial','',12);
-    $pdf->Cell(0,20, utf8_decode($pedido->getbairroDoSalao()) ,0,1,'L');
+    $pdf->Cell(0,20, utf8_decode($pedido->getbairroDaloja()) ,0,1,'L');
 
     $pdf->SetFont('arial','B',12);
     $pdf->Cell(135,20, utf8_decode("Descrição do Pedido: "),0,0,'L');
@@ -67,5 +67,5 @@ if(isset($_GET['codigo'])){
     $pdf->Cell(0,20, $pedido->getparcelamento() ,0,1,'L');
 }
     //gerando o arquivo pedidoAlfparf.pdf
-    $pdf->Output('pedidoAlfparf.pdf', 'I');
+    $pdf->Output(utf8_decode('Relatório de Vendas.pdf'), 'I');
    ?>

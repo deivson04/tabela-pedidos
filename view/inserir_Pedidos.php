@@ -37,12 +37,12 @@ if(isset($_GET['codigo'])){
 </head>
 <body>
 
-<div class="offset-md-11 offset-sm-11 col-md-1 col-sm-1">
+<div class="offset-md-10 offset-sm-10 col-md-1 col-sm-1 offset-10 col-1">
   <a class="btn btn-primary" href="../controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
 </div>
 <div class='container'>
  
- <h1>INSERIR PEDIDOS</h1>
+ <h1>CADASTRAR PEDIDOS</h1>
  
  <form class="container-fluid justify-content-start">
     <a class="btn btn-outline-success me-2" href="../index.php">Pedidos</a>
@@ -52,30 +52,30 @@ if(isset($_GET['codigo'])){
 <form action="<?=$destino; ?>" method="post"> 
 <div class="form-label">
     <label for="cliente" class="form-label">Nome do Cliente:</label>
-    <input type="text" value="" name="nomeDoCliente" class="form-control" id="nomeDoCliente" style="min-width:300px;"  placeholder="Nome do Clienta" required>
+    <input type="text" value="" name="nomeDoCliente" class="form-control" id="" style="min-width:300px;"  placeholder="Nome do Cliente" required>
   </div>
   
   <div class="form-label">
     <label for="salao" class="form-label">Nome da Loja:</label>
-    <input type="text" value="" name="nomeDoSalao" class="form-control" id="nomeDoSalao" style="min-width:300px;" placeholder="Nome da Loja" required>
+    <input type="text" value="" name="nomeDaLoja" class="form-control" id="" style="min-width:300px;" placeholder="Nome da Loja" required>
   </div>
 
   <div class="form-label">
     <label for="date" class="form-label">Data do Pedido:</label>
-    <input type="date" value="" name="dataDoPedido" class="form-control" id="dataDoPedido" style="min-width:300px;" data-format="00/00/0000"  placeholder="dd/mm/yyyy" required>
+    <input type="date" value="" name="dataDoPedido" class="form-control" id="" style="min-width:300px;" data-format="00/00/0000"  placeholder="dd/mm/yyyy" required>
   </div>
   
   <div class="form-label">
     <label for="bairro" class="form-label">Bairro da Loja:</label>
-    <input type="text" value="" name="bairroDoSalao" class="form-control" id="bairroDoSalao" style="min-width:300px;"  placeholder="bairro da Loja" required>
+    <input type="text" value="" name="bairroDaLoja" class="form-control" id="" style="min-width:300px;"  placeholder="bairro da Loja" required>
   </div>
   
   <label for="descricao">Descriçao do Pedido:</label>
-  <textarea name="descricaoDoPedido" value="" class="form-control" rows="5" id="descricao" required></textarea>
+  <textarea name="descricaoDoPedido" value="" class="form-control" rows="5" id="" required></textarea>
   
   <br> 
   <label for="descricao">Metodo de pagamento:</label>
-  <select class="form-select" value="" id="pagamento"  name="metodoDePagamento" aria-label="Default select example">
+  <select class="form-select" value="" id=""  name="metodoDePagamento" aria-label="Default select example">
   <option selected>Escolha a Forma de Pagamento</option>
   <option value="Cartão de Credito">Cartão de Credito</option>
   <option value="Boleto">Boleto</option>
@@ -84,7 +84,7 @@ if(isset($_GET['codigo'])){
 </select>  
 <br>
 <label for="descricao">Parcelamento:</label>
-  <select class="form-select" value="" id="parcela" name="parcelamento" aria-label="Default select example">
+  <select class="form-select" value="" id=" " name="parcelamento" aria-label="Default select example">
   <option selected>Escolha a Quantidade de Parcelas</option>
   <option value="1x">1x</option>
   <option value="2x">2x</option>

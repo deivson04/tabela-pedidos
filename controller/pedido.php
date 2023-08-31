@@ -17,7 +17,7 @@ class Pedido {
 		$this -> nomeDoCliente = $nomeDoCliente;
 		$this -> nomeDaLoja = $nomeDaLoja;
 		$this -> dataDoPedido = $dataDoPedido;
-        $this -> bairroDoSalao = $bairroDaLoja;
+        $this -> bairroDaLoja = $bairroDaLoja;
         $this -> descricaoDoPedido = $descricaoDoPedido;
         $this -> metodoDePagamento = $metodoDePagamento;
         $this -> parcelamento = $parcelamento;
