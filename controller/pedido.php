@@ -10,8 +10,9 @@ class Pedido {
     private $descricaoDoPedido;
     private $metodoDePagamento;
     private $parcelamento;
+	private $login_id;
 
-	function __construct( $codigo, $nomeDoCliente, $nomeDaLoja, $dataDoPedido, $bairroDaLoja, $descricaoDoPedido, $metodoDePagamento, $parcelamento) {
+	function __construct( $codigo, $nomeDoCliente, $nomeDaLoja, $dataDoPedido, $bairroDaLoja, $descricaoDoPedido, $metodoDePagamento, $parcelamento, $login_id) {
 			
 		$this->codigo = $codigo;	
 		$this -> nomeDoCliente = $nomeDoCliente;
@@ -21,6 +22,7 @@ class Pedido {
         $this -> descricaoDoPedido = $descricaoDoPedido;
         $this -> metodoDePagamento = $metodoDePagamento;
         $this -> parcelamento = $parcelamento;
+	    $this -> login_id = $login_id;
 	}
 		
 	function getCodigo(){
@@ -55,6 +57,10 @@ class Pedido {
 		return $this -> parcelamento;
 	}
 
+	function getLogin_id() {
+		return $this -> login_id;
+	}
+
 	function setCodigo($valor){
 			$this->codigo = $valor;
 	}
@@ -85,6 +91,10 @@ class Pedido {
 
     function setParcelamento($valor) {
 		$this -> parcelamento = $valor;
+	}
+    
+	function setLogin_id($valor) {
+		$this -> login_id = $valor;
 	}
 }
 ?>

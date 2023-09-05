@@ -13,8 +13,8 @@
 		public function __construct()
 		{
 			//Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
-			 $this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
-			 //$this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
+			 //$this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
+			 $this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
 			
 			//Conecta ao banco de dados
 			if ($this->conexao->conectar() == false) {
@@ -33,10 +33,11 @@
 			$descricaoDoPedido = $pedido->getDescricaoDoPedido();
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
-			
+			$login_id = $pedido->getLogin_id();
+
 			$sql = "INSERT INTO pedido (codigo, nomeDoCliente, nomeDaLoja, dataDoPedido, bairroDaLoja, descricaoDoPedido,
-			metodoDePagamento, parcelamento) VALUES
-			(NULL, '$nomeDoCliente', '$nomeDaLoja', '$dataDoPedido', '$bairroDaLoja', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento')";
+			metodoDePagamento, parcelamento, login_id) VALUES
+			(NULL, '$nomeDoCliente', '$nomeDaLoja', '$dataDoPedido', '$bairroDaLoja', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento', '$login_id')";
 			
 			$this->conexao->executarQuery($sql);
 		}
@@ -59,13 +60,14 @@
 			$descricaoDoPedido = $pedido->getDescricaoDoPedido();
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
-
+            $login_id = $pedido->getLogin_id();
 			
 			$sql = "UPDATE pedido SET nomeDoCliente='$nomeDoCliente', 
-			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDaLoja='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
+			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDaLoja='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento', login_id='$login_id'
 			WHERE codigo='$codigo'";
-			
+			 
 			$this->conexao->executarQuery($sql);
+		   
 		}
 		
 		//Busca um novo pedido a partir de seu código. 
@@ -76,28 +78,27 @@
 			$linha = $this->conexao->obtemPrimeiroRegistroQuery("SELECT * FROM pedido WHERE codigo='$codigo'");
 			 
 			 //Cria um novo objeto pedido baseado na busca acima
-			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'])	;
+			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'], $linha['login_id']);
 			 
 			 return $pedido;
 		}
 		
 		public function getListaPedido()
 		{
-			//Obtem a lista de todos os pedidos cadastrados
-			$listagem = $this->conexao->executarQuery("SELECT * FROM pedido");
 			
-			//Cria um novo array onde os objetos pedidos serão guardados
-			$arrayPedidos = array();
+			//Obtem a lista de todos os pedidos cadastrados
+			$listagem = $this->conexao->executarQuery("SELECT a.id as loginid, a.email, 
+			b.codigo as pedidoid, b.nomeDoCliente, b.nomeDaLoja, b.dataDoPedido, b.bairroDaLoja, b.descricaoDoPedido, b.metodoDePagamento, b.parcelamento 
+	 FROM login a INNER JOIN pedido b on
+		   (a.id = b.login_id");
 			
 			//Varre a lista de entradas da tabela pedidos e cria um novo objeto pedido para cada entrada da tabela
-			while($linha = mysqli_fetch_array($listagem)){
+			if ($listagem) {                      
 				
-				$pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento']);
-			    array_push($arrayPedidos, $pedido);
-			}
-			
-			//Retorna o array de pedidos
-			return $arrayPedidos;
+				foreach($listagem->fetchAll() as $row):
+					printf($row['codigo'], $row['nomeDoCliente'], $row['nomeDaLoja'], $row['dataDoPedido'], $row['bairroDaLoja'], $row['descricaoDoPedido'], $row['metodoDePagamento'], $row['parcelamento'], $row['login_id']);
+				endforeach;
+			} 
 		}
 	} 
 

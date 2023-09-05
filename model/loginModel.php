@@ -12,8 +12,8 @@ class LoginModel implements ILoginModel {
     public function __construct()
     {
         //Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
-        $this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
-        //$this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
+        //$this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
+        $this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
         
         //Conecta ao banco de dados
         if ($this->conexao->conectar() == false) {
@@ -52,6 +52,6 @@ class LoginModel implements ILoginModel {
         return $login;
         
     }
-}
 
+}
 $repositorio = new LoginModel();
