@@ -85,8 +85,22 @@
 		
 		public function getListaPedido($id_usuario)
 		{
-			
+			$sql = "SELECT 
+						login.id as login_id, 
+						login.email, 
+						pedido.codigo,
+						pedido.nomeDoCliente, 
+						pedido.nomeDaLoja, 
+						pedido.dataDoPedido, 
+						pedido.bairroDaLoja, 
+						pedido.descricaoDoPedido, 
+						pedido.metodoDePagamento, 
+						pedido.parcelamento 
+	 				FROM login INNER JOIN pedido 
+	 					ON login.id = pedido.login_id
+					WHERE pedido.login_id = $id_usuario";
 			//Obtem a lista de todos os pedidos cadastrados
+<<<<<<< HEAD
 			$sql = "SELECT 
 						login.id as login_id, 
 						login.email, 
@@ -104,15 +118,27 @@
 			//Obtem a lista de todos os pedidos cadastrados
 			$listagem = $this->conexao->executarQuery($sql);
 			
+=======
+			$listagem = $this->conexao->executarQuery($sql);
+>>>>>>> 544bd4278129ae49662b7fede4aeb13e48ce43e0
 			$arrayPedidos = [];
 			//Varre a lista de entradas da tabela pedidos e cria um novo objeto pedido para cada entrada da tabela
-			if ($listagem) {                      
+			if ($listagem) {  
 				
+<<<<<<< HEAD
 				foreach($listagem as $row) {
 					$pedido = new Pedido($row['codigo'], $row['nomeDoCliente'], $row['nomeDaLoja'], $row['dataDoPedido'], $row['bairroDaLoja'], $row['descricaoDoPedido'], $row['metodoDePagamento'], $row['parcelamento'], $row['login_id']);
 				    $arrayPedidos[] = $pedido;
 			} 
 		    return $arrayPedidos;
+=======
+				foreach($listagem as $linha) {
+					$pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'], $linha['login_id']);
+					$arrayPedidos[] = $pedido;
+				}
+			} 
+			return $arrayPedidos;
+>>>>>>> 544bd4278129ae49662b7fede4aeb13e48ce43e0
 		}
 	} 
 
