@@ -6,7 +6,7 @@ if(!isset($_SESSION["email"])) {
 }
 require '../model/repositorio_pedidos.php';
 
-$pedidos = $repositorio->getListaPedido();
+$pedidos = $repositorio->getListaPedido($_SESSION["id"]);
 
 $destino = "../controller/cadastrar_pedido.php";
 

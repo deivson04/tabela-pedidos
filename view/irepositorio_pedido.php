@@ -6,7 +6,7 @@
 		public function removerPedido($codigo);
 		public function alterarPedido($pedido);
 		public function buscarPedido($codigo);
-		public function getListaPedido();
+		public function getListaPedido($id_usuario);
 	}
 ?>
 

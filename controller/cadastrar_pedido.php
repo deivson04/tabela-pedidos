@@ -6,7 +6,9 @@
    
    //Envia para o repositorio
    $repositorio->cadastrarPedido($pedidoRecebido);
-   
+   //echo "<pre>";
+    //var_dump($repositorio);
+    //die; 
    header('Location: ../index.php');
    exit;
 ?>

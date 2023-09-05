@@ -92,9 +92,5 @@ class Pedido {
     function setParcelamento($valor) {
 		$this -> parcelamento = $valor;
 	}
-    
-	function setLogin_id($valor) {
-		$this -> login_id = $valor;
-	}
 }
 ?>
