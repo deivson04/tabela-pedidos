@@ -13,7 +13,7 @@ $destino = "controller/cadastrar_pedido.php";
 if(isset($_GET['codigo'])){
   $codigo = $_GET['codigo']; //Guardamos o codigo enviado na variável $codigo
   //Obtemos o objeto prato relativo ao código
-  $pedido = $repositorio->buscarPedido($codigo);
+  $pedido = $repositorio->buscarPedido();
  //Agora a variável destino vai apontar para alterar_pedido.php
  $destino = "alterar_pedido.php";
 //  //Vamos acrescentar este campo oculto no formulário que contem o codigo do resgistro 
@@ -40,8 +40,10 @@ if(isset($_GET['codigo'])){
 </div>
  <div class='container'>
 
-   <h1>RELATÓRIO DE PEDIDOS</h1>
-   
+ <?php
+   echo "<font size=3>Bem-Vindo(a) " . $_SESSION["nome"] . "!<BR>\n";
+   ?>  
+ <h1>RELATÓRIO DE PEDIDOS</h1>
   
   <form class="container-fluid justify-content-start">
     <a class="btn btn-outline-success me-2 active" href="#">Pedidos</a>
@@ -59,10 +61,12 @@ if(isset($_GET['codigo'])){
     <div class="col-md-1 col-sm-1 titulo">Met. Pagamento</div>
     <div class="col-md-2 col-sm-1 titulo">Parcelamento</div>
 </div>
-   
-    
+
+ 
     
 <?php
+    if($pedidos) {
+    
     while($pedidoTemporario = array_shift($pedidos)){                               						
 ?>
     <div class="row linha-corpo">
@@ -75,11 +79,14 @@ if(isset($_GET['codigo'])){
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getMetodoDePagamento() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><?php echo $pedidoTemporario->getParcelamento() ?></div>
         <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/editar_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-brush"></i>Alterar</a></div>
-        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/remover_Pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-x">Remover</i></a></div>
+        <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="controller/remover_pedido.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-x">Remover</i></a></div>
         <div class="col-md-1 col-sm-1 corpo"><a class="btn btn-primary" href="view/gerarpdf.php?codigo=<?= $pedidoTemporario->getCodigo(); ?>"><i class="bi bi-arrow-up-circle-fill"></i>GerarPdf</a></div>
 </div>
 <?php                
-    }               
+    }     
+}else{
+  echo "Você não tem relatório ainda!";
+}              
 ?>
 <script src="js/bootstrap.min"></script>
 <script src="js/tabelaPedidos.js"></script> 

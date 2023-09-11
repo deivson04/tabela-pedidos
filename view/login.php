@@ -45,7 +45,7 @@
         </form>
         <div class="mb-3"> 
         <div class="col-md-6 offset-md-5">   
-            <small><strong>Copyright &copy; Your Site 2023</strong></small>
+            <small><strong>&copy; Your Site 2023</strong></small>
         </div> 
     </div>
     </div>

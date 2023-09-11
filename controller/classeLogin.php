@@ -3,12 +3,14 @@
 class Login {
 
 	private $id;
+	private $nome;
 	private $email;
 	private $senha;
 
-	function __construct( $id, $email, $senha) {
+	function __construct( $id, $nome, $email, $senha) {
 			
 		$this->id = $id;	
+		$this -> nome = $nome;
 		$this -> email = $email;
 	    $this -> senha = $senha;
 	}
@@ -17,7 +19,11 @@ class Login {
 		return $this->id;
 	}
     
-    function getEmail() {
+    function getNome() {
+		return $this->nome;
+	}
+	
+	function getEmail() {
 		return $this->email;
 	}
     
@@ -28,7 +34,11 @@ class Login {
 	function setId($valor){
 			$this->id = $valor;
 	}
-
+    
+	function setNome($valor) {
+		$this->nome = $valor;
+	}
+		
 	function setEmail($valor) {
 		$this->email = $valor;
 	}

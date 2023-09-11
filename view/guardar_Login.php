@@ -24,6 +24,11 @@ $destino = "../controller/cadastrar_login.php";
     
     <div class="form-group">
     <div class="col-md-6 offset-md-3">    
+    <label>SEU NOME</label>
+        <input type="name" class="form-control" name="nome" id="" aria-describedby="nomeHelp" placeholder="Digite seu Nome" required>
+    </div>
+    <br>
+    <div class="col-md-6 offset-md-3">    
     <label>SEU E-MAIL</label>
         <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp" placeholder="Digite seu Email" required>
     </div>
@@ -48,7 +53,7 @@ $destino = "../controller/cadastrar_login.php";
 
 </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min"></script>
 <script src="js/tabelaPedidos.js"></script>
 
 </body>
