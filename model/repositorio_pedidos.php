@@ -33,11 +33,11 @@
 			$descricaoDoPedido = $pedido->getDescricaoDoPedido();
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
-			
+			$login_id = $pedido->getLoginId();
 
 			$sql = "INSERT INTO pedido (codigo, nomeDoCliente, nomeDaLoja, dataDoPedido, bairroDaLoja, descricaoDoPedido,
-			metodoDePagamento, parcelamento) VALUES
-			(NULL, '$nomeDoCliente', '$nomeDaLoja', '$dataDoPedido', '$bairroDaLoja', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento')";
+			metodoDePagamento, parcelamento, login_id) VALUES
+			(NULL, '$nomeDoCliente', '$nomeDaLoja', '$dataDoPedido', '$bairroDaLoja', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento', $login_id)";
 			 
 			$this->conexao->executarQuery($sql);
 		    //echo "<pre>";
@@ -63,10 +63,9 @@
 			$descricaoDoPedido = $pedido->getDescricaoDoPedido();
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
-            
 			
 			$sql = "UPDATE pedido SET nomeDoCliente='$nomeDoCliente', 
-			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDaLoja='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento',
+			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDaLoja='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
 			WHERE codigo='$codigo'";
 			 
 			$this->conexao->executarQuery($sql);

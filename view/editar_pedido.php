@@ -6,7 +6,7 @@ if(!isset($_SESSION["email"])) {
 }
 require '../model/repositorio_pedidos.php';
 
-$pedidos = $repositorio->getListaPedido();
+$pedidos = $repositorio->getListaPedido($_SESSION["id"]);
 
 //  $destino = "cadastrar_pedido.php";
 
@@ -101,10 +101,11 @@ if(isset($_GET['codigo'])){
 </div>
 <br>  
 <br>  
-
+ 
  <input type="hidden" name="codigo" value="<?= $pedido->getCodigo(); ?>" />
  <p><input type="submit" name="submit" class="btn btn-primary" value="salvar" /></p>
  
+ <input type="hidden" name="login_id" value="<?php echo $_SESSION["id"]; ?>"> 
 </form>     
 </div>     
     

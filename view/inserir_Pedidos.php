@@ -101,7 +101,7 @@ if(isset($_GET['codigo'])){
 </select>  
 <br>    
 <button type="submit" class="btn btn-primary">Salvar</button>
-  
+<input type="hidden" name="login_id" value="<?php echo $_SESSION["id"]; ?>">  
 </form>     
 </div>      
     
