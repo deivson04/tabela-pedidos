@@ -11,14 +11,18 @@
     </head>
     <body>
     <div class='container'>
-        <h3>LOGIN</h3>
-        
+    
+    <div class="text-center">
+      <figure>
+        <img src="../img/relatorio.png" alt="">
+      </figure>
+    </div>    
         
         <form action="../controller/controllerLogin.php" method="post">
         <div class="form-group">
-                <div class="   col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-3">
                     <label>SEU E-MAIL</label>
-                    <input type="text" name="email" class="form-control " placeholder="E-MAIL" required="" >    
+                    <input type="text" name="email" class="form-control" placeholder="E-MAIL" required="" >    
                 </div>
             </div>
             <br>  
@@ -29,8 +33,8 @@
                 </div>
             </div>      
             <br>
-            <div class="mb-3">
-                <div class="col-md-6 offset-md-3">
+            <div class="text-center">
+                <div class="col-md-12">
                     <input type="submit" value="Entrar" class="btn btn-dark" name=""> 
                 </div>
             </div>
@@ -43,10 +47,7 @@
             </div>
             </div>  
         </form>
-        <div class="mb-3"> 
-        <div class="col-md-6 offset-md-5">   
-            <small><strong>&copy; Your Site 2023</strong></small>
-        </div> 
+        
     </div>
     </div>
     <script src="js/bootstrap.min"></script>

@@ -36,19 +36,28 @@ if(isset($_GET['codigo'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-
-<div class="offset-md-10 offset-sm-10 col-md-1 col-sm-1 offset-10 col-1">
-  <a class="btn btn-primary" href="../controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
-</div>
 <div class='container'>
- 
- <h1>CADASTRAR PEDIDOS</h1>
- 
- <form class="container-fluid justify-content-start">
-    <a class="btn btn-outline-success me-2" href="../index.php">Pedidos</a>
-    <a class="btn btn-sm btn-outline-secondary active"  href="#">Inserir Pedidos</a>
-  </form>
 
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand offset-sm-5" href="#">
+    <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="20" height="30" class="d-inline-block align-top" alt="">
+   Cadastrar Pedidos
+  </a>
+    
+   
+  </nav>
+
+<br> 
+</header>
+<br>
+<nav>      
+<form class="container-fluid justify-content-start">
+    <a class="btn btn-sm btn-outline-secondary" href="../index.php">Pedidos</a>
+    <a class="btn btn-sm btn-outline-secondary active"  href="#">Inserir Pedidos</a>
+</form> 
+</nav>
+<br>
 <form action="<?=$destino; ?>" method="post"> 
 <div class="form-label">
     <label for="cliente" class="form-label">Nome do Cliente:</label>

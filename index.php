@@ -35,22 +35,37 @@ if(isset($_GET['codigo'])){
 </head>
 
 <body>
-<div class="offset-md-10 offset-sm-10 col-md-1 col-sm-1 offset-10 col-1">
+<div class='container'>
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php">
+    <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="20" height="30" class="d-inline-block align-top" alt="">
+    Pedidos
+  </a>
+    <form class="form-inline  ">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </form>
+    <a class="btn btn-primary offset-sm-7" href="controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
+  </nav>
+<!-- <div class="offset-md-10 offset-sm-10 col-md-1 col-sm-1 offset-10 col-1">
   <a class="btn btn-primary" href="controller/deslogar.php"><i class="bi bi-box-arrow-right"></i> Sair </a>
-</div>
- <div class='container'>
-
- <?php
-   echo "<font size=3>Bem-Vindo(a) " . $_SESSION["nome"] . "!<BR>\n";
-   ?>  
- <h1>RELATÓRIO DE PEDIDOS</h1>
-  
-  <form class="container-fluid justify-content-start">
-    <a class="btn btn-outline-success me-2 active" href="#">Pedidos</a>
+</div> -->
+<br> 
+<?php
+   echo "<font size=3>Bem-Vindo(a)<b> " . $_SESSION["nome"] . "!<BR>\n";
+?>  
+</header>
+<br>
+<nav>      
+<form class="container-fluid justify-content-start">
+    <a class="btn btn-sm btn-outline-secondary active" href="#">Pedidos</a>
     <a class="btn btn-sm btn-outline-secondary"  href="view/inserir_Pedidos.php">Inserir Pedidos</a>
-  </form>
-
-
+    <a class="btn btn-sm btn-outline-secondary" href="#">Relatório Semanal</a>
+</form> 
+</nav>
+<br>
+<section>
 <div class="row linha-titulo">
     <div class="col-md-1 col-sm-1 titulo">ID</div>
     <div class="col-md-1 col-sm-1 titulo">Nome do Cliente</div>
@@ -91,6 +106,14 @@ if(isset($_GET['codigo'])){
 <script src="js/bootstrap.min"></script>
 <script src="js/tabelaPedidos.js"></script> 
 
+</section>
+
+<footer>
+        <div class="mb-3"> 
+          <div class="col-md-6 offset-md-5">   
+          <small><strong>&copy; Your Site 2023</strong></small>
+        </div> 
+</footer>
 </body>
   
 </html>
