@@ -44,7 +44,7 @@ a {
 }
 
 .navbar.bg-light {
-   background-color: #B0E0E6 !important;
+   background-color: #B0E0E6;
    .form-control {
      border-radius: 4.25rem;
    }
