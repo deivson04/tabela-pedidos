@@ -39,7 +39,7 @@ if(isset($_GET['codigo'])){
 <div class='container'>
 
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand offset-sm-5" href="#">
     <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="20" height="30" class="d-inline-block align-top" alt="">
    Cadastrar Pedidos
