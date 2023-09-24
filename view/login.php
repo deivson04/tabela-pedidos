@@ -35,11 +35,10 @@
             <br>
             <div class="text-center">
                 <div class="col-md-12">
-                    <input type="submit" value="Entrar" class="btn btn-dark" name=""> 
+                    <input type="submit" value="Entrar" class="btn btn-primary btn-lg" name=""> 
                 </div>
             </div>
-            
-            
+            <br>
             <div class="mb-3">   
             <div class="col-md-6 offset-md-3">      
                 Não tem conta?

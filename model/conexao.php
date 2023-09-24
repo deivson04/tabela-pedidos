@@ -15,7 +15,7 @@
 	
 	public function __construct($host, $usuario, $senha,$banco)
 	{
-		//Observe a utilização da variável $this.Neste caso, elaestá servindo para diferenciar
+		//Observe a utilização da variável $this.Neste caso, ela está servindo para diferenciar
 		//o atributo da classe (o que está apontado por this) e os argumentos da função __construct
 		
 		$this->host = $host;
