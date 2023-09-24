@@ -2,7 +2,15 @@
    require '../model/repositorio_pedidos.php';
    
    //Cria um novo objeto com os dados recebidos pelo form
-   $pedidoRecebido = new Pedido(null, $_REQUEST['nomeDoCliente'], $_REQUEST['nomeDaLoja'], $_REQUEST['dataDoPedido'], $_REQUEST['bairroDaLoja'],  $_REQUEST['descricaoDoPedido'], $_REQUEST['metodoDePagamento'], $_REQUEST['parcelamento'], $_REQUEST['login_id']);
+   $pedidoRecebido = new Pedido();
+   $pedidoRecebido->setNomeDoCliente($_REQUEST['nomeDoCliente']);
+   $pedidoRecebido->setNomeDaLoja($_REQUEST['nomeDaLoja']);
+   $pedidoRecebido->setDataDoPedido($_REQUEST['dataDoPedido']);
+   $pedidoRecebido->setBairroDaLoja($_REQUEST['bairroDaLoja']);
+   $pedidoRecebido->setDescricaoDoPedido($_REQUEST['descricaoDoPedido']);
+   $pedidoRecebido->setMetodoDePagamento($_REQUEST['metodoDePagamento']);
+   $pedidoRecebido->setParcelamento($_REQUEST['parcelamento']);
+   $pedidoRecebido->setLoginId($_REQUEST['login_id']);
    
    //Envia para o repositorio
    $repositorio->cadastrarPedido($pedidoRecebido);
