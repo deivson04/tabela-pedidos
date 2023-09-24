@@ -13,54 +13,44 @@ class Pedido {
 	private $login_id;
 	
 
-	function __construct( $codigo, $nomeDoCliente, $nomeDaLoja, $dataDoPedido, $bairroDaLoja, $descricaoDoPedido, $metodoDePagamento, $parcelamento, $login_id) {
-			
-		$this->codigo = $codigo;	
-		$this -> nomeDoCliente = $nomeDoCliente;
-		$this -> nomeDaLoja = $nomeDaLoja;
-		$this -> dataDoPedido = $dataDoPedido;
-        $this -> bairroDaLoja = $bairroDaLoja;
-        $this -> descricaoDoPedido = $descricaoDoPedido;
-        $this -> metodoDePagamento = $metodoDePagamento;
-        $this -> parcelamento = $parcelamento;
-		$this -> login_id = $login_id;
+	function __construct() {
 	   
 	}
 		
 	function getCodigo(){
-		return $this -> codigo;
+		return $this->codigo;
 	}
     
     function getNomeDoCliente() {
-		return $this -> nomeDoCliente;
+		return $this->nomeDoCliente;
 	}
     
 	function getNomeDaLoja() {
-		return $this -> nomeDaLoja;
+		return $this->nomeDaLoja;
 	}
 
 	function getDataDoPedido() {
-		return $this -> dataDoPedido;
+		return $this->dataDoPedido;
 	}
 
 	function getBairroDaLoja() {
-		return $this -> bairroDaLoja;
+		return $this->bairroDaLoja;
 	}
 
     function getDescricaoDoPedido() {
-		return $this -> descricaoDoPedido;
+		return $this->descricaoDoPedido;
 	}
 
     function getMetodoDePagamento() {
-		return $this -> metodoDePagamento;
+		return $this->metodoDePagamento;
 	}
 
     function getParcelamento() {
-		return $this -> parcelamento;
+		return $this->parcelamento;
 	}
 
 	function getLoginId() {
-		return $this -> login_id;
+		return $this->login_id;
 	}
 
 	function setCodigo($valor){
@@ -68,31 +58,35 @@ class Pedido {
 	}
 
 	function setNomeDoCliente($valor) {
-		$this -> nomeDoCliente = $valor;
+		$this->nomeDoCliente = $valor;
 	}
 
-	function setNomeDoSalao($valor) {
-		$this -> nomeDoSalao = $valor;
+	function setNomeDaLoja($valor) {
+		$this->nomeDaLoja = $valor;
 	}
 
 	function setDataDoPedido($valor) {
-		$this -> dataDoPedido  = $valor;
+		$this->dataDoPedido  = $valor;
 	}
 
-    function setBairroDoSalao($valor) {
-		$this -> bairroDoSalao  = $valor;
+    function setBairroDaLoja($valor) {
+		$this->bairroDaLoja  = $valor;
 	}
 
     function setDescricaoDoPedido($valor) {
-		$this -> descricaoDoPedido = $valor;
+		$this->descricaoDoPedido = $valor;
 	}
 
     function setMetodoDePagamento($valor) {
-		$this -> metodoDePagamento  = $valor;
+		$this->metodoDePagamento  = $valor;
 	}
 
     function setParcelamento($valor) {
-		$this -> parcelamento = $valor;
+		$this->parcelamento = $valor;
+	}
+
+	function setLoginId($valor) {
+		$this->login_id = $valor;
 	}
 }
 ?>

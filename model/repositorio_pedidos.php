@@ -1,25 +1,19 @@
 <?php
     require 'conexao.php';
 	include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/controller/pedido.php';
- 	include $_SERVER["DOCUMENT_ROOT"] . '/tabela-pedidos/view/irepositorio_pedido.php';
 	
 	//Classe de repositório de pedidos que implementa IRepositorioPedidos
-	class RepositorioPedidos implements IRepositorioPedido {
+	class RepositorioPedidos {
 		
 		//Objeto conexão que guardará a conexão com o banco
 		private $conexao;
 		
 		//Construtor do repositório de pratos
 		public function __construct()
-		{
-			//Cria o objeto conexão que será responsável pelas chamadas ao banco de dados
-			 $this->conexao = new Conexao("localhost", "u577415805_deivson01", "Ma=!4[@;zJP1", "u577415805_tabelapedidos");
-			 //$this->conexao = new Conexao("localhost", "root", "", "tabelapedidos");
-			
+		{			
 			//Conecta ao banco de dados
-			if ($this->conexao->conectar() == false) {
-				echo "Erro".mysqli_error();
-			}
+			$this->conexao = (new Conexao())->abrirConexao();
+
 		}
 		
 		//Cadastra um novo pedido. Observe que a SQL é preparada e enviada para o banco. 
@@ -34,22 +28,43 @@
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
 			$login_id = $pedido->getLoginId();
-
-			$sql = "INSERT INTO pedido (codigo, nomeDoCliente, nomeDaLoja, dataDoPedido, bairroDaLoja, descricaoDoPedido,
-			metodoDePagamento, parcelamento, login_id) VALUES
-			(NULL, '$nomeDoCliente', '$nomeDaLoja', '$dataDoPedido', '$bairroDaLoja', '$descricaoDoPedido', '$metodoDePagamento', '$parcelamento', $login_id)";
-			 
-			$this->conexao->executarQuery($sql);
-		    //echo "<pre>";
-            //var_dump($sql);
-            //die;
+			
+			$sql = "INSERT INTO pedido (nomeDoCliente, 
+										nomeDaLoja, 
+										dataDoPedido, 
+										bairroDaLoja, 
+										descricaoDoPedido, 
+										metodoDePagamento, 
+										parcelamento, 
+										login_id) 
+										VALUES
+										(:nomeDoCliente, 
+										:nomeDaLoja, 
+										:dataDoPedido, 
+										:bairroDaLoja, 
+										:descricaoDoPedido, 
+										:metodoDePagamento, 
+										:parcelamento, 
+										:login_id)";
+			$stmt = $this->conexao->prepare($sql);
+			$stmt->bindParam(":nomeDoCliente", $nomeDoCliente);
+			$stmt->bindParam(":nomeDaLoja", $nomeDaLoja);
+			$stmt->bindParam(":dataDoPedido", $dataDoPedido);
+			$stmt->bindParam(":bairroDaLoja", $bairroDaLoja);
+			$stmt->bindParam(":descricaoDoPedido", $descricaoDoPedido);
+			$stmt->bindParam(":metodoDePagamento", $metodoDePagamento);
+			$stmt->bindParam(":parcelamento", $parcelamento);
+			$stmt->bindParam(":login_id", $login_id);
+			$stmt->execute();
 		}
 		
 		//Remove um pedido do banco de dados
 		public function removerPedido($codigo)
 		{
-			$sql = "DELETE FROM pedido WHERE codigo = '$codigo'";
-			$this->conexao->executarQuery($sql);
+			$sql = "DELETE FROM pedido WHERE codigo = :codigo";
+			$stmt = $this->conexao->prepare($sql);
+			$stmt->bindParam(":codigo", $codigo);
+			$stmt->execute();
 		}
 		
 		//Atualiza a informação de um dado pedido no banco de dados
@@ -64,11 +79,26 @@
 			$metodoDePagamento = $pedido->getMetodoDePagamento();
 			$parcelamento = $pedido->getParcelamento();
 			
-			$sql = "UPDATE pedido SET nomeDoCliente='$nomeDoCliente', 
-			nomeDaLoja='$nomeDaLoja', dataDoPedido='$dataDoPedido', bairroDaLoja='$bairroDaLoja', descricaoDoPedido='$descricaoDoPedido', metodoDePagamento='$metodoDePagamento', parcelamento='$parcelamento'
-			WHERE codigo='$codigo'";
+			$sql = "UPDATE pedido 
+						SET nomeDoCliente = :nomeDoCliente, 
+							nomeDaLoja = :nomeDaLoja, 
+							dataDoPedido = :dataDoPedido, 
+							bairroDaLoja = :bairroDaLoja, 
+							descricaoDoPedido = :descricaoDoPedido, 
+							metodoDePagamento = :metodoDePagamento, 
+							parcelamento =:parcelamento
+					WHERE codigo = :codigo";
 			 
-			$this->conexao->executarQuery($sql);
+			 $stmt = $this->conexao->prepare($sql);
+			 $stmt->bindParam(":codigo", $codigo);
+			 $stmt->bindParam(":nomeDoCliente", $nomeDoCliente);
+			 $stmt->bindParam(":nomeDaLoja", $nomeDaLoja);
+			 $stmt->bindParam(":dataDoPedido", $dataDoPedido);
+			 $stmt->bindParam(":bairroDaLoja", $bairroDaLoja);
+			 $stmt->bindParam(":descricaoDoPedido", $descricaoDoPedido);
+			 $stmt->bindParam(":metodoDePagamento", $metodoDePagamento);
+			 $stmt->bindParam(":parcelamento", $parcelamento);
+			 $stmt->execute();
 		   
 		}
 		
@@ -77,11 +107,25 @@
 		public function buscarPedido($codigo)
 		{
 			//Obtem o primeiro registro do select abaixo
-			$linha = $this->conexao->obtemPrimeiroRegistroQuery("SELECT * FROM pedido WHERE codigo='$codigo'");
-			 
+			$sql = "SELECT 
+						* 
+					FROM pedido 
+					WHERE codigo = :codigo";
+			$stmt = $this->conexao->prepare($sql);
+			$stmt->bindParam(":codigo", $codigo);
+			$stmt->execute();
+			$linha = $stmt->fetch(PDO::FETCH_ASSOC);
 			 //Cria um novo objeto pedido baseado na busca acima
-			 $pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'], $linha['login_id']);
-			 
+			$pedido = new Pedido();
+			$pedido->setCodigo($linha['codigo']);
+			$pedido->setNomeDoCliente($linha['nomeDoCliente']);
+			$pedido->setNomeDaLoja($linha['nomeDaLoja']);
+			$pedido->setDataDoPedido($linha['dataDoPedido']);
+			$pedido->setBairroDaLoja($linha['bairroDaLoja']);
+			$pedido->setDescricaoDoPedido($linha['descricaoDoPedido']);
+			$pedido->setMetodoDePagamento($linha['metodoDePagamento']);
+			$pedido->setParcelamento($linha['parcelamento']);
+			$pedido->setLoginId($linha['login_id']);
 			 return $pedido;
 		}
 		
@@ -100,17 +144,27 @@
 						pedido.parcelamento 
 	 				FROM login INNER JOIN pedido 
 	 					ON login.id = pedido.login_id
-					WHERE pedido.login_id = $id_usuario";
+					WHERE pedido.login_id = :id_usuario";
+			$stmt = $this->conexao->prepare($sql);
+			$stmt->bindParam(":id_usuario", $id_usuario);
+			$stmt->execute();		
 			//Obtem a lista de todos os pedidos cadastrados
-
-			$listagem = $this->conexao->executarQuery($sql);
-
+			$listagem = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			$arrayPedidos = [];
 			//Varre a lista de entradas da tabela pedidos e cria um novo objeto pedido para cada entrada da tabela
 			if ($listagem) {  
 				 
 				foreach($listagem as $linha) {
-					$pedido = new Pedido($linha['codigo'], $linha['nomeDoCliente'], $linha['nomeDaLoja'], $linha['dataDoPedido'],  $linha['bairroDaLoja'], $linha['descricaoDoPedido'], $linha['metodoDePagamento'], $linha['parcelamento'], $linha['login_id']);
+					$pedido = new Pedido();
+					$pedido->setCodigo($linha['codigo']);
+					$pedido->setNomeDoCliente($linha['nomeDoCliente']);
+					$pedido->setNomeDaLoja($linha['nomeDaLoja']);
+					$pedido->setDataDoPedido($linha['dataDoPedido']);
+					$pedido->setBairroDaLoja($linha['bairroDaLoja']);
+					$pedido->setDescricaoDoPedido($linha['descricaoDoPedido']);
+					$pedido->setMetodoDePagamento($linha['metodoDePagamento']);
+					$pedido->setParcelamento($linha['parcelamento']);
+					$pedido->setLoginId($linha['login_id']);
 					$arrayPedidos[] = $pedido;
 				}
 			} 
