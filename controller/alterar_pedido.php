@@ -5,8 +5,16 @@
     //die;
    
    //Cria um novo objeto com as entradas recebidas pelo usuário
-   $pedidoRecebido = new Pedido($_REQUEST['codigo'], $_REQUEST['nomeDoCliente'], $_REQUEST['nomeDoSalao'], $_REQUEST['dataDoPedido'], $_REQUEST['bairroDoSalao'], $_REQUEST['descricaoDoPedido'], $_REQUEST['metodoDePagamento'], $_REQUEST['parcelamento'], $_REQUEST['login_id']);
-   
+   $pedidoRecebido = new Pedido();
+   $pedidoRecebido->setCodigo($_REQUEST['codigo']);
+   $pedidoRecebido->setNomeDoCliente($_REQUEST['nomeDoCliente']);
+   $pedidoRecebido->setNomeDaLoja($_REQUEST['nomeDaLoja']);
+   $pedidoRecebido->setDataDoPedido($_REQUEST['dataDoPedido']);
+   $pedidoRecebido->setBairroDaLoja($_REQUEST['bairroDaLoja']);
+   $pedidoRecebido->setDescricaoDoPedido($_REQUEST['descricaoDoPedido']);
+   $pedidoRecebido->setMetodoDePagamento($_REQUEST['metodoDePagamento']);
+   $pedidoRecebido->setParcelamento($_REQUEST['parcelamento']);
+   $pedidoRecebido->setLoginId($_REQUEST['login_id']);
    //Atualiza o pedido existente no banco com os dados recebidos pelo form
    $repositorio->alterarPedido($pedidoRecebido);
    
